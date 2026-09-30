@@ -18,8 +18,8 @@ Repositori ini berisi situs unduhan NexByte untuk aplikasi desktop Windows NexBy
 - `app.min.js`: interaksi carousel, pengiriman feedback, pencatatan klik, serta URL installer dan Apps Script. File ini sudah diminifikasi.
 - `privacy.html`: kebijakan privasi.
 - `Code.gs`: backend Apps Script untuk klik unduhan dan feedback.
-- `preview-1.webp` sampai `preview-4.webp`: pratinjau terkompresi untuk situs. File sumber JPG/PNG tetap disimpan di folder yang sama.
-- File WebP logo dan `batik-pattern.svg`: aset visual yang digunakan oleh halaman.
+- `preview-1.webp` sampai `preview-4.webp`: pratinjau aplikasi resolusi penuh; halaman juga memakai varian thumbnail berukuran kecil dan `preview-1-960.webp` untuk tampilan carousel responsif.
+- `nexbyte-icon.webp`: varian kecil ikon aplikasi untuk halaman; file WebP logo sumber dan `batik-pattern.svg` melengkapi aset visual.
 
 ## Menjalankan Secara Lokal
 
