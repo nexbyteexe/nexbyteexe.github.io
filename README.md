@@ -1,63 +1,77 @@
-# NexByte Monitor
+# NexByte
 
-NexByte Monitor adalah aplikasi desktop Windows untuk melihat kualitas koneksi internet. Aplikasi menampilkan ping, kecepatan download, dan kecepatan upload, dengan pilihan ukuran, transparansi, serta tema.
-
-Repositori ini berisi situs unduhan dan kebijakan privasi, serta backend Google Apps Script untuk mencatat klik unduhan dan feedback. Source code aplikasi desktop tidak termasuk di repositori ini.
+Repositori ini berisi situs unduhan NexByte untuk aplikasi desktop Windows NexByte Monitor, halaman kebijakan privasi, serta backend Google Apps Script untuk mencatat klik unduhan dan feedback. Source code aplikasi desktop tidak termasuk dalam repositori ini.
 
 ## Fitur
 
-- Situs unduhan untuk NexByte Monitor di Windows 10 dan Windows 11.
+- Halaman unduhan untuk Windows 10 dan Windows 11.
 - Galeri pratinjau aplikasi.
 - Form rating dan feedback pengguna.
 - Pencatatan klik unduhan secara anonim.
-- Backend menyimpan klik dan feedback hingga 30 hari, dengan batas 1.000 catatan klik dan 300 feedback.
-- Kebijakan privasi yang menjelaskan penggunaan data dan layanan pihak ketiga.
+- Penyimpanan maksimal 1.000 catatan klik dan 300 feedback; data dihapus setelah 30 hari.
+- Halaman kebijakan privasi.
 
-## Isi Repositori
+## Struktur File
 
-- `index.html` dan `index.min.css`: halaman unduhan.
-- `app.min.js`: interaksi halaman, tautan unduhan, pengiriman feedback, dan URL Google Apps Script.
-- `privacy.html` dan `privacy.min.css`: halaman kebijakan privasi.
-- `Code.gs`: backend Google Apps Script untuk klik unduhan dan feedback.
-- `preview-*` dan file gambar lainnya: aset visual situs.
+- `index.html`: halaman utama, metadata SEO, dan markup situs.
+- `index.min.css` dan `privacy.min.css`: stylesheet produksi yang sudah diminifikasi.
+- `app.min.js`: interaksi carousel, pengiriman feedback, pencatatan klik, serta URL installer dan Apps Script. File ini sudah diminifikasi.
+- `privacy.html`: kebijakan privasi.
+- `Code.gs`: backend Apps Script untuk klik unduhan dan feedback.
+- `preview-1.webp` sampai `preview-4.webp`: pratinjau terkompresi untuk situs. File sumber JPG/PNG tetap disimpan di folder yang sama.
+- File WebP logo dan `batik-pattern.svg`: aset visual yang digunakan oleh halaman.
 
 ## Menjalankan Secara Lokal
 
-Situs tidak memerlukan proses build atau instalasi dependensi. Dari direktori repositori, jalankan server web lokal:
+Situs statis ini tidak memerlukan proses build atau instalasi dependensi. Dari folder repositori, jalankan server lokal:
 
 ```powershell
 py -m http.server 8000
 ```
 
-Kemudian buka <http://localhost:8000> di browser. Membuka `index.html` langsung juga dapat digunakan untuk melihat sebagian besar halaman, tetapi server lokal lebih sesuai untuk menguji situs.
+Buka <http://localhost:8000>. Server lokal lebih sesuai daripada membuka file HTML langsung untuk memeriksa semua aset dan tautan.
 
-## Deploy Situs ke GitHub Pages
+## Rilis Situs dengan GitHub Pages
 
-1. Push file situs dan asetnya ke repositori GitHub.
-2. Buka **Settings > Pages** di repositori.
-3. Pada **Build and deployment**, pilih **Deploy from a branch**.
-4. Pilih branch dan folder sumber yang berisi `index.html`, lalu simpan.
-5. Pastikan URL situs serta halaman `privacy.html` dapat dibuka setelah deployment.
+Repositori ini memakai nama `nexbyteexe.github.io`, sehingga alamat situsnya adalah <https://nexbyteexe.github.io/>.
 
-Tautan installer ditentukan oleh konstanta `DOWNLOAD_URL` di `app.min.js` dan saat ini mengarah ke GitHub Release `v1.0.0`. Perbarui URL tersebut jika nama file atau versi rilis berubah.
+1. Push file situs beserta semua aset yang digunakan ke branch `main`.
+2. Buka **Settings > Pages** pada repositori GitHub.
+3. Di **Build and deployment**, pilih **Deploy from a branch**.
+4. Pilih branch `main` dan folder `/ (root)`, lalu simpan.
+5. Tunggu deployment selesai, kemudian periksa halaman utama dan <https://nexbyteexe.github.io/privacy.html>.
 
-## Backend Google Apps Script
+## Rilis Installer Windows
 
-`Code.gs` menyediakan endpoint `doPost` untuk dua jenis request: `click` dan `feedback`. Data disimpan di Script Properties; catatan yang lebih lama dari 30 hari dibersihkan dan jumlah catatan dibatasi.
+Installer tersedia di [GitHub Releases](https://github.com/nexbyteexe/nexbyteexe.github.io/releases). URL file yang saat ini dipakai situs adalah:
 
-Untuk menggunakan deployment Apps Script sendiri:
+```text
+https://github.com/nexbyteexe/nexbyteexe.github.io/releases/download/v1.0.0/NexByte.1.0.0.exe
+```
+
+Saat menerbitkan versi baru:
+
+1. Buat GitHub Release dengan tag versi, misalnya `v1.0.1`.
+2. Upload installer `.exe` ke release dan catat nama file persis, termasuk huruf besar/kecil.
+3. Ubah konstanta `DOWNLOAD_URL` di `app.min.js` agar menunjuk ke URL aset release baru.
+4. Ubah nama file, ukuran, dan tanggal pembaruan pada `index.html` agar sesuai dengan installer yang diunggah.
+5. Pastikan URL unduhan langsung berhasil dibuka sebelum push perubahan situs.
+
+## Apps Script
+
+`Code.gs` menerima request `click` dan `feedback`, lalu menyimpan data di Script Properties. Untuk memakai backend sendiri:
 
 1. Buat project di Google Apps Script dan salin isi `Code.gs`.
-2. Deploy sebagai **Web app**, dengan eksekusi sebagai pemilik script dan akses yang mengizinkan pengunjung situs mengirim request.
-3. Salin URL Web app yang berakhiran `/exec`.
-4. Ganti konstanta `APPS_SCRIPT_URL` di `app.min.js` dengan URL deployment tersebut, lalu deploy ulang situs.
+2. Deploy sebagai **Web app**, dijalankan sebagai pemilik script, dengan akses yang mengizinkan pengunjung situs mengirim request.
+3. Salin URL deployment yang berakhiran `/exec`.
+4. Ganti konstanta `APPS_SCRIPT_URL` di `app.min.js`, lalu deploy ulang situs.
 
-URL Apps Script saat ini sudah dikonfigurasi di `app.min.js`. Jangan masukkan kredensial atau rahasia ke file frontend publik.
+URL Apps Script saat ini sudah dikonfigurasi di `app.min.js`. Jangan menyimpan kredensial atau rahasia di file frontend publik.
+
+## Pemanggilan Resource
+
+JavaScript halaman utama memakai `defer`, sedangkan script Google Ads memakai `async`. CSS dan JavaScript sudah disediakan sebagai file minified. Halaman memakai system font stack, jadi tidak mengunduh web font dari layanan pihak ketiga. Gambar preview dimuat secara lazy dan menggunakan WebP terkompresi.
 
 ## Privasi
 
-Klik unduhan tidak menyertakan nama pengunjung. Feedback berisi rating, komentar, dan waktu pengiriman. Informasi koneksi untuk speed test diproses oleh layanan Cloudflare. Baca [Kebijakan Privasi](privacy.html) untuk detailnya.
-
-## Rilis Aplikasi
-
-Installer Windows tersedia melalui [GitHub Releases](https://github.com/zenkscammer/zenkscammer.github.io/releases). Situs saat ini menautkan `NexByte.Monitor.1.0.0.exe` dari rilis `v1.0.0`.
+Klik unduhan tidak menyertakan nama pengunjung. Feedback mencakup rating, komentar, dan waktu pengiriman. Cloudflare memproses data teknis koneksi untuk menjalankan speed test. Detailnya tersedia di [Kebijakan Privasi](privacy.html).
