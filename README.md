@@ -1,6 +1,14 @@
-# NexByte
+# NexByte Speed Test
 
-Repositori ini berisi situs unduhan NexByte untuk aplikasi desktop Windows NexByte Monitor, halaman kebijakan privasi, serta backend Google Apps Script untuk mencatat klik unduhan dan feedback. Source code aplikasi desktop tidak termasuk dalam repositori ini.
+NexByte Speed Test is a lightweight web application for monitoring:
+
+- Live Ping
+- Download Speed
+- Upload Speed
+- Internet Connection Quality
+
+Website:
+https://nexbyteexe.github.io/
 
 ## Fitur
 
