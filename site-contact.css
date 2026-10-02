@@ -1,0 +1,17 @@
+.email-link {
+  color: var(--lime);
+  font: inherit;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.email-link:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 4px;
+  border-radius: 2px;
+}

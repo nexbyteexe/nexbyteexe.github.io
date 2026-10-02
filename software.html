@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101716" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="description" content="Download NexByte Speed Test for Windows, a lightweight app for testing internet speed, monitoring ping, and viewing network performance." />
+    <meta name="keywords" content="NexByte Speed Test software, Windows speed test app, ping monitor, download upload tester, network monitor software, Windows utility" />
+    <meta property="og:title" content="NexByte Speed Test for Windows | Speed Test &amp; Network Monitor" />
+    <meta property="og:description" content="Test internet speed, monitor ping, and view download and upload performance with NexByte Speed Test for Windows." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nexbyteexe.github.io/software.html" />
+    <meta property="og:image" content="https://nexbyteexe.github.io/og-preview.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="629" />
+    <meta property="og:image:alt" content="NexByte desktop monitor showing live network metrics" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://nexbyteexe.github.io/og-preview.jpg" />
+    <link rel="canonical" href="https://nexbyteexe.github.io/software.html" />
+    <title>NexByte Speed Test for Windows | Internet Speed Test</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "NexByte Speed Test",
+        "url": "https://nexbyteexe.github.io/software.html",
+        "image": "https://nexbyteexe.github.io/og-preview.jpg",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": ["Windows 10", "Windows 11"],
+        "softwareVersion": "1.0.0",
+        "fileSize": "100.3 MB",
+        "downloadUrl": "https://github.com/nexbyteexe/nexbyteexe.github.io/releases/download/v1.0.0/NexByte.1.0.0.exe",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "NexByte Speed Test"
+        },
+        "description": "NexByte Speed Test is a Windows app for testing internet speed, monitoring live ping, and viewing download and upload performance."
+      }
+    </script>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5008812499182568" crossorigin="anonymous"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #f3f2e9;
+        --muted: #a6b0a8;
+        --base: #101716;
+        --panel: #192220;
+        --widget-bg: #101614;
+        --line: #34423d;
+        --lime: #c9f36a;
+        --orange: #ff875e;
+        --batik-pattern: url("batik-pattern.svg");
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background-color: var(--base);
+        background-image: var(--batik-pattern), linear-gradient(145deg, rgba(201,243,106,.035), transparent 42%);
+        background-size: 150px 132px, auto;
+        color: var(--ink);
+        font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+      }
+      body {
+        min-height: 100vh;
+      }
+      a { color: #c9f36a; text-decoration: none; }
+      main {
+        width: min(100% - 40px, 1080px);
+        min-height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        border-bottom: 1px solid var(--line);
+      }
+      .header-bar {
+        min-height: 88px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: .02em;
+      }
+      .brand-mark {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 52px;
+      }
+      .brand-mark img {
+        display: block;
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+      }
+      nav {
+        position: absolute;
+        right: max(20px, calc((100vw - 1080px) / 2 + 20px));
+        top: 28px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      nav a {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      nav a:hover {
+        color: var(--ink);
+      }
+      .content {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 22px;
+        padding: 48px 0 68px;
+      }
+      .monitor-intro {
+        max-width: 760px;
+        text-align: center;
+      }
+      .monitor-kicker {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--lime);
+        font: 11px/1.4 Consolas, monospace;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+      .monitor-title {
+        margin: 0 0 10px;
+        font-size: 30px;
+        line-height: 1.2;
+      }
+      .monitor-copy {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+      .download-panel {
+        width: min(100%, 780px);
+        padding: clamp(22px, 4vw, 32px);
+        border: 1px solid rgba(201, 243, 106, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+        background-color: var(--panel);
+        background-image: linear-gradient(145deg, rgba(201, 243, 106, 0.045), transparent 48%), var(--batik-pattern);
+        background-size: auto, 150px 132px;
+      }
+      .file-heading {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+      .file-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 12px;
+        display: block;
+      }
+      .file-heading h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .file-name {
+        color: var(--muted);
+        margin-top: 4px;
+        font-size: 14px;
+      }
+      .details {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 1.4;
+        text-transform: uppercase;
+      }
+      .details span {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding-left: 12px;
+        border-left: 1px solid var(--line);
+      }
+      .details span:first-child {
+        padding-left: 0;
+        border-left: 0;
+      }
+      .details strong {
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.35;
+        text-transform: none;
+      }
+      .download-count {
+        margin: 20px 0 0;
+        color: var(--ink);
+        font-size: 14px;
+      }
+      .download-form {
+        display: flex;
+        justify-content: center;
+        margin-top: 18px;
+      }
+      .download-button {
+        width: min(100%, 420px);
+        min-width: 0;
+        min-height: 54px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--lime);
+        color: #101716;
+        padding: 14px 22px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color .18s, transform .18s;
+      }
+      .download-button:hover {
+        background: #d9ff83;
+        transform: translateY(-1px);
+      }
+      .download-button:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 3px;
+      }
+      .tracking-status {
+        min-height: 18px;
+        margin: 10px 0 0;
+        color: var(--lime);
+        font-size: 13px;
+      }
+      .notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: rgba(255, 135, 94, 0.045);
+        border: 1px solid rgba(255, 135, 94, 0.18);
+        border-left: 3px solid var(--orange);
+        border-radius: 6px;
+        padding: 12px 14px;
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .notice b {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: rgba(255,135,94,0.2);
+        color: var(--orange);
+      }
+      .features-section {
+        width: min(100%, 940px);
+        margin-top: 12px;
+      }
+      .features-section h2 {
+        margin: 0 0 18px;
+        color: var(--lime);
+        font-size: 18px;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .feature-item {
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.02);
+        padding: 18px 18px 16px;
+        border-radius: 14px;
+      }
+      .feature-item h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+      .feature-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .section-spacer {
+        height: 1px;
+        width: min(100%, 940px);
+        background: var(--line);
+        margin: 10px 0 0;
+      }
+      footer {
+        min-height: 64px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px 16px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font: 11px Consolas, monospace;
+      }
+      .privacy-link { color: var(--lime); text-decoration: none; }
+      .privacy-link:hover { text-decoration: underline; }
+      @media (max-width: 760px) {
+        nav {
+          position: static;
+          margin-top: 12px;
+          justify-content: center;
+        }
+        .header-bar {
+          flex-direction: column;
+          justify-content: center;
+          padding: 18px 0;
+        }
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        .details {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 16px 12px;
+        }
+        .details span:nth-child(odd) {
+          padding-left: 0;
+          border-left: 0;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="site-contact.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="header-bar">
+          <div class="brand">
+            <a class="brand-mark" href="/" aria-label="Home" title="Home">
+              <img src="nexbyte-icon.webp" alt="" width="52" height="52" decoding="async" />
+            </a>
+            NexByte Speed Test
+          </div>
+          <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="software.html">Software</a>
+          </nav>
+        </div>
+      </header>
+
+      <section class="content" aria-labelledby="monitor-heading">
+        <div class="monitor-intro">
+          <span class="monitor-kicker">WINDOWS NETWORK UTILITY</span>
+          <h1 class="monitor-title" id="monitor-heading">NexByte Speed Test for Windows</h1>
+          <p class="monitor-copy">NexByte Speed Test is a lightweight Windows app for testing internet speed, monitoring live ping, and viewing download and upload performance in one desktop monitor.</p>
+        </div>
+
+        <div class="download-panel">
+          <div class="file-heading">
+            <img class="file-icon" src="nexbyte-icon.webp" alt="" width="88" height="88" decoding="async" aria-hidden="true" />
+            <div>
+              <h2 id="download-heading">NexByte Speed Test</h2>
+              <div class="file-name">NexByte.1.0.0.exe</div>
+            </div>
+          </div>
+          <div class="details">
+            <span>System <strong>Windows 10/11</strong></span>
+            <span>Format <strong>EXE</strong></span>
+            <span>Size <strong>100.3 MB</strong></span>
+            <span>Last updated <strong>September 28, 2026</strong></span>
+          </div>
+          <p class="download-count"><strong>200+</strong> users have downloaded</p>
+          <div class="download-form">
+            <a class="download-button" href="https://github.com/nexbyteexe/nexbyteexe.github.io/releases/download/v1.0.0/NexByte.1.0.0.exe" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">&#8595;</span> Download for Windows
+            </a>
+          </div>
+          <p class="notice"><b>!</b><span>Windows may show a warning for an unrecognized app. Download the installer only from the official GitHub release and verify the source before running it.</span></p>
+        </div>
+
+        <section class="features-section" aria-labelledby="features-title">
+          <h2 id="features-title">NexByte Speed Test Features</h2>
+          <div class="features-grid">
+            <article class="feature-item">
+              <h3>Live internet metrics</h3>
+              <p>Monitor ping, download speed, and upload speed together in one lightweight Windows app.</p>
+            </article>
+            <article class="feature-item">
+              <h3>Always-on network monitor</h3>
+              <p>Check your connection at a glance while working, streaming, or gaming.</p>
+            </article>
+            <article class="feature-item">
+              <h3>Custom desktop display</h3>
+              <p>Adjust the monitor size and transparency, then choose a theme for your desktop.</p>
+            </article>
+            <article class="feature-item">
+              <h3>Internet speed testing on Windows</h3>
+              <p>Measure connection quality with Cloudflare-powered ping, download, and upload data.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <div class="section-spacer" aria-hidden="true"></div>
+
+      <footer>
+        <span>NexByte Speed Test / Windows</span>
+        <span>COPYRIGHT &copy; 2026 ZSCMMR</span>
+        <a class="email-link" href="mailto:nexbyte.wrld@gmail.com">nexbyte.wrld@gmail.com</a>
+        <a class="privacy-link" href="privacy.html">Privacy Policy</a>
+      </footer>
+    </main>
+  </body>
+</html>
